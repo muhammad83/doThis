@@ -1,8 +1,8 @@
-name: PR checks
-run-name: Checking PR created by ${{ github.actor }}
+name: Build
+run-name: Checking the build after the Push/PR by ${{ github.actor }}
 on: [push]
 jobs:
-  Test-PR:
+  Build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
