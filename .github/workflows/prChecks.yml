@@ -31,8 +31,16 @@ jobs:
             test-results/**/*.xml
             test-results/**/*.trx
             test-results/**/*.json
+
+      - name: TestForest Dashboard
+        uses: test-summary/action@v2.3
+        with:
+          paths: "test/results/**/TEST-*.xml"
+          if: always()
+
     permissions:
       checks: write
       pull-requests: write
+
 
 
