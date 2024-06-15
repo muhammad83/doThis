@@ -28,14 +28,14 @@ jobs:
         if: always()
         with:
           files: |
-            build/test-results/test/*.xml
-            build/test-results/test/*.trx
-            build/test-results/test/*.json
+            build/test-results/test/TEST-*.xml
+            build/test-results/test/TEST-*.trx
+            build/test-results/test/TEST-*.json
 
       - name: TestForest Dashboard
         uses: test-summary/action@v2.3
         with:
-          paths: "test/results/**/TEST-*.xml"
+          paths: "test/results/test/TEST-*.xml"
           if: always()
 
     permissions:
