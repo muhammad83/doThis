@@ -1,8 +1,5 @@
-name: PR checks
-run-name: Checking PR created by ${{ github.actor }}
 on: [push]
 jobs:
-  Test-PR:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
@@ -22,5 +19,23 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew build
+
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2.16.1
+        if: always()
+        with:
+          files: |
+            build/test-results/test/TEST-*.xml
+
+      - name: Publish Test Summary
+        uses: test-summary/action@v2.3
+        if: always()
+        with:
+          paths: "build/test-results/test/TEST-*.xml"
+
+    permissions:
+      checks: write
+      pull-requests: write
+
 
 
