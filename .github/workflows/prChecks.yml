@@ -28,9 +28,9 @@ jobs:
         if: always()
         with:
           files: |
-            test-results/**/*.xml
-            test-results/**/*.trx
-            test-results/**/*.json
+            build/test-results/test/*.xml
+            build/test-results/test/*.trx
+            build/test-results/test/*.json
 
       - name: TestForest Dashboard
         uses: test-summary/action@v2.3
