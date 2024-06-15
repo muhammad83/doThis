@@ -34,9 +34,9 @@ jobs:
 
       - name: TestForest Dashboard
         uses: test-summary/action@v2.3
+        if: always()
         with:
           paths: "test/results/test/TEST-*.xml"
-          if: always()
 
     permissions:
       checks: write
