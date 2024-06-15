@@ -1,5 +1,8 @@
+name: Build
+run-name: Checking the build after the Push/PR by ${{ github.actor }}
 on: [push]
 jobs:
+  Build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
@@ -36,6 +39,3 @@ jobs:
     permissions:
       checks: write
       pull-requests: write
-
-
-
