@@ -36,6 +36,19 @@ jobs:
         with:
           paths: "build/test-results/test/TEST-*.xml"
 
+      - name: Generate JaCoCo Badge
+        uses: cicirello/jacoco-badge-generator@v2
+        with:
+          generate-branches-badge: true
+          jacoco-csv-file: build/customJacocoReportDir/test/jacocoTestReport.csv
+
+      - name: Update Jacoco Badge
+        uses: test-room-7/action-update-file@v1
+        with:
+          file-path: .github/badges/jacoco.svg
+          commit-msg: Update Jacoco Badge
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
     permissions:
       checks: write
       pull-requests: write
