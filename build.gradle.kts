@@ -19,6 +19,10 @@ jacoco {
 	reportsDirectory = layout.buildDirectory.dir("jacocoReportDir")
 }
 
+spotless {
+    kotlin { ktlint() }
+}
+
 repositories {
 	mavenCentral()
 }
