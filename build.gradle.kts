@@ -3,6 +3,10 @@ plugins {
 	jacoco
 	id("org.springframework.boot") version "3.3.0"
 	id("io.spring.dependency-management") version "1.1.5"
+	id("com.diffplug.spotless") version "7.0.0.BETA1"
+
+	id("com.dorongold.task-tree") version "4.0.0"
+
 }
 
 group = "com.softbits"
@@ -16,6 +20,10 @@ java {
 jacoco {
 	toolVersion = "0.8.11"
 	reportsDirectory = layout.buildDirectory.dir("jacocoReportDir")
+}
+
+spotless {
+    kotlin { ktlint() }
 }
 
 repositories {
